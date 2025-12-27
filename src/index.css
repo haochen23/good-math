@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Nunito', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-primary-50 via-white to-accent-50 min-h-screen;
+    @apply text-gray-800 antialiased;
+    margin: 0;
+  }
+
+  /* Prevent text selection on interactive elements for children */
+  button, .no-select {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Larger touch targets for children */
+  button {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 active:bg-primary-700;
+    @apply text-white font-bold rounded-2xl;
+    @apply shadow-soft hover:shadow-medium active:shadow-none;
+    @apply transition-all duration-200 ease-out;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-500 hover:bg-secondary-600 active:bg-secondary-700;
+    @apply text-white font-bold rounded-2xl;
+    @apply shadow-soft hover:shadow-medium active:shadow-none;
+    @apply transition-all duration-200 ease-out;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 active:bg-accent-700;
+    @apply text-white font-bold rounded-2xl;
+    @apply shadow-soft hover:shadow-medium active:shadow-none;
+    @apply transition-all duration-200 ease-out;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+
+  .card {
+    @apply bg-white rounded-3xl shadow-soft;
+    @apply p-6 md:p-8;
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-medium hover:scale-[1.02];
+    @apply active:scale-[0.98];
+  }
+
+  /* Number display for math problems */
+  .number-display {
+    font-family: 'JetBrains Mono', monospace;
+    @apply font-bold tabular-nums;
+  }
+
+  /* Vertical calculation styling */
+  .vertical-calc {
+    font-family: 'JetBrains Mono', monospace;
+    @apply font-bold tabular-nums;
+  }
+
+  .vertical-calc-line {
+    @apply border-b-4 border-gray-800;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Gradient text */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-rainbow {
+    @apply bg-gradient-to-r from-fun-pink via-fun-purple to-accent-500 bg-clip-text text-transparent;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    @apply shadow-glow-primary;
+  }
+
+  .glow-success {
+    @apply shadow-glow-success;
+  }
+
+  .glow-accent {
+    @apply shadow-glow-accent;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  @apply outline-none ring-4 ring-primary-400 ring-offset-2;
+}
+
+/* Scrollbar styling for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
