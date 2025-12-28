@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { MathProblem, AnimationSpeed } from '../../types';
 import { ANIMATION_SPEEDS } from '../../types';
 import { getDigits, padDigits, getOperationSymbol } from '../../utils/mathGenerator';
-import { 
-    speechManager, 
-    getAdditionSpeechText, 
-    getSubtractionSpeechText, 
-    getCompletionSpeech 
+import {
+    speechManager,
+    getAdditionSpeechText,
+    getSubtractionSpeechText,
+    getCompletionSpeech
 } from '../../utils/speech';
 import { useSettingsStore } from '../../stores/settingsStore';
 
@@ -81,7 +81,7 @@ export const VerticalCalculation: React.FC<VerticalCalculationProps> = ({
 }) => {
     // Get speech setting
     const speechEnabled = useSettingsStore(state => state.speechEnabled);
-    
+
     // Current column being animated (0 = ones, 1 = tens, etc.)
     const [currentColumn, setCurrentColumn] = useState(-1);
     // Animation phase within current column
@@ -194,7 +194,7 @@ export const VerticalCalculation: React.FC<VerticalCalculationProps> = ({
         const runAnimation = async () => {
             // Stop any previous speech
             speechManager.stop();
-            
+
             // Initial delay
             await new Promise(r => setTimeout(r, baseTiming));
             if (cancelled) return;
@@ -202,7 +202,7 @@ export const VerticalCalculation: React.FC<VerticalCalculationProps> = ({
             // Animate each column
             for (let col = 0; col < maxDigits; col++) {
                 if (cancelled) return;
-                
+
                 setCurrentColumn(col);
                 const column = columns[col];
 
@@ -263,7 +263,7 @@ export const VerticalCalculation: React.FC<VerticalCalculationProps> = ({
             const completionText = getCompletionSpeech(isCorrect, problem.answer);
             await speakAndWait(completionText, baseTiming);
             if (cancelled) return;
-            
+
             onComplete?.();
         };
 
