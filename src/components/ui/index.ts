@@ -9,3 +9,5 @@ export type { ProgressColor, ProgressSize } from './ProgressBar';
 
 export { Badge, StarRating } from './Badge';
 export type { BadgeVariant, BadgeColor, BadgeSize } from './Badge';
+
+export { Scratchpad } from './Scratchpad';
