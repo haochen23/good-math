@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Home, StopCircle, CheckCircle2 } from 'lucide-react';
-import { Button, ProgressBar, Card } from '../components/ui';
+import { Button, ProgressBar, Card, Scratchpad } from '../components/ui';
 import { NumberPad, ProblemDisplay } from '../components/quiz';
 import { VerticalCalculation, Celebration } from '../components/animations';
 import { useQuizStore, useQuizMode, useTotalAnswered, useCorrectInSession } from '../stores/quizStore';
@@ -351,6 +351,9 @@ const QuizPage: React.FC = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Scratchpad for draft calculations */}
+            <Scratchpad />
         </div>
     );
 };
